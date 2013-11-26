@@ -8,3 +8,5 @@ This project is aimed to make a kalman filter implementation to the maximum powe
 The code is written in VHDL
 
 The entire process is set in single precision float format.
+
+That's all folks!!!
