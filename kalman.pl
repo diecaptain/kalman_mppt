@@ -7,26 +7,24 @@ $Q = 0.01; #Value of Q
 $R = 0.0001; #value of R
 $Vin = 21; #initial estimate of input voltage
 $Zin = 0.99; #initial estimate of input error
-@Vref = qw(20 20.6 19.27 20.1 19.8 19.36 19.42 19.62 19.38 20.4 19.32 18.1 19.64 19.25 19.44 19.21 19.69 19.67 19.62 19.58);
-print "\n the reference voltage array is : \n @Vref \n\n";
+print "\n Enter reference voltage array here :\n";
+chomp(@Vref = <STDIN>);
 $n = @Vref;
-@Iref = qw(0.42 0.93 0.45 0.78 0.83 0.72 0.75 0.9 0.77 0.96 0.84 0.41 0.82 0.68 0.72 0.55 0.7 0.73 0.76 0.68);
-print "\n the reference current array is : \n @Iref \n\n";
+print "\n Enter reference current array here :\n";
+chomp(@Iref = <STDIN>);
 for ( $j = 0;$j < $n; $j++ ) 
   {
    $P[$j] = $Vref[$j] * $Iref[$j]; #Power array is calculated here
   }
-print "\n the reference power array is : \n @P \n\n";
-$Vopt = 21;
-print "\nThe optimal voltage is : $Vopt \n";
-@Iopt = qw (1.19 1.20 1.22 1.24 1.22 1.21);
-print "The optimal current array is : @Iopt \n";
+print "\n Enter optimal voltage here :\n";
+chomp($Vopt = <STDIN>);
+print "\n Enter optimal current array here :\n";
+chomp(@Iopt = <STDIN>);
 $q = @Iopt;
 for ( $l = 0;$l < $q; $l++ ) 
   {
    $Popt[$l] = $Vopt * $Iopt[$l]; #Power array is calculated here
   }
-print "\n the optimal reference power array is : \n @Popt \n\n";
 kalman ();
 kalman_opt ();
 print "That's all folks!!!\n";
